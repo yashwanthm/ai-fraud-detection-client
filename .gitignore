@@ -1,0 +1,93 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug logs
+*.log
+
+# Test coverage
+coverage/
+
+# Production build
+build/
+
+# Miscellaneous
+.DS_Store
+*.pem
+*.crt
+*.key
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Optional TypeScript cache
+*.tsbuildinfo
+
+# Optional MacOS folder attributes
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Parcel-bundler cache (optional)
+.cache
+
+# next.js build output
+.next/
+
+# nuxt.js build output
+.nuxt/
+
+# expo
+.expo/
+.expo-shared/
+web-build/
+
+# .husky (for git hooks)
+.husky/
+
+# End of https://www.toptal.com/developers/gitignore
