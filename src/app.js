@@ -56,8 +56,9 @@ const App = () => {
         <GridItem span={6}>
           <PageSection>
             <TextContent>
-              <Text component="h1">Tell me about your transaction</Text>
+              <Text component="h1">Tell me about the transaction</Text>
             </TextContent>
+            <br/>
             <Form onSubmit={handleSubmit}>
               <FormGroup
                 label="Distance from last transaction (km):"
@@ -73,7 +74,7 @@ const App = () => {
                 />
               </FormGroup>
               <FormGroup
-                label="ratio of the transaction value to the median:"
+                label="Ratio of the transaction value to the median:"
                 isRequired
                 fieldId="ratioToMedian"
               >
@@ -87,7 +88,7 @@ const App = () => {
                 />
               </FormGroup>
               <FormGroup
-                label="Using a pin"
+                label="Did the user use the card pin?"
                 fieldId="usePin"
               >
                 <Checkbox
@@ -97,7 +98,7 @@ const App = () => {
                 />
               </FormGroup>
               <FormGroup
-                label="Is the credit card with a chip"
+                label="Is it a card with a chip?"
                 fieldId="useChip"
               >
                 <Checkbox
@@ -107,7 +108,7 @@ const App = () => {
                 />
               </FormGroup>
               <FormGroup
-                label="Online transaction"
+                label="Is this an online transaction?"
                 fieldId="onlineTransaction"
               >
                 <Checkbox
@@ -126,13 +127,25 @@ const App = () => {
         </GridItem>
         <GridItem span={6}>
         <PageSection>
-            <TextContent>
-              <Text component="h1">OpenShift Platform Demo for creating intelligent applications</Text>
-              UI Client - https://github.com/yashwanthm/ai-fraud-detection-client
-              REST API for interfacing with the model - https://github.com/yashwanthm/ai-fraud-detection-demo-api
-              Model Development, Training and Deployment - https://docs.redhat.com/en/documentation/red_hat_openshift_ai_cloud_service/1/html-single/openshift_ai_tutorial_-_fraud_detection_example/index
+          <TextContent>
+            <Text component="h1">OpenShift Platform Demo for creating intelligent applications</Text>
+            <Text component="p">
+              <a href="https://github.com/yashwanthm/ai-fraud-detection-client" target="_blank" rel="noopener noreferrer">UI Client</a>
+              - Code for the client-side application.
+            </Text>
+            <Text component="p">
+              <a href="https://github.com/yashwanthm/ai-fraud-detection-demo-api" target="_blank" rel="noopener noreferrer">REST API for interfacing with the model</a>
+              - Code for the server-side API.
+            </Text>
+            <Text component="p">
+              <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_cloud_service/1/html-single/openshift_ai_tutorial_-_fraud_detection_example/index" target="_blank" rel="noopener noreferrer">Model Development, Training and Deployment</a>
+              - Tutorial for building, training and deploying the model using OpenShift AI.
+            </Text>
+            <Button component="a" href="https://console.redhat.com/openshift/sandbox" target="_blank" rel="noopener noreferrer" variant="primary">
+              Signup of OpenShift Developer Sandbox
+            </Button>
 
-            </TextContent>
+          </TextContent>
         </PageSection>
 
         </GridItem>
