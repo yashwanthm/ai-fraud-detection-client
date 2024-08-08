@@ -26,7 +26,7 @@ const App = () => {
   const [onlineTransaction, setOnlineTransaction] = useState(false);
   const [message, setMessage] = useState('');
 
-  const endpoint = "https://ai-fraud-detection-demo-api-ymaheshw-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com";
+  const endpoint = "https://ai-fraud-detection-demo-api-ymaheshw-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -142,7 +142,7 @@ const App = () => {
               - Tutorial for building, training and deploying the model using OpenShift AI.
             </Text>
             <Button component="a" href="https://console.redhat.com/openshift/sandbox" target="_blank" rel="noopener noreferrer" variant="primary">
-              Signup of OpenShift Developer Sandbox
+              Signup for OpenShift Developer Sandbox
             </Button>
 
           </TextContent>
