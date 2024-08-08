@@ -16,6 +16,7 @@ import {
   GridItem
 } from '@patternfly/react-core';
 import "@patternfly/react-core/dist/styles/base.css";
+import overviewImage from './images/overview.png';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -129,6 +130,7 @@ const App = () => {
         <PageSection>
           <TextContent>
             <Text component="h1">OpenShift Platform Demo for creating intelligent applications</Text>
+            <img src={overviewImage} alt="Overview" />
             <Text component="p">
               <a href="https://github.com/yashwanthm/ai-fraud-detection-client" target="_blank" rel="noopener noreferrer">UI Client</a>
               - Code for the client-side application.
