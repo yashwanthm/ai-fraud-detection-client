@@ -16,11 +16,10 @@ import {
   GridItem
 } from '@patternfly/react-core';
 import "@patternfly/react-core/dist/styles/base.css";
-import StandardScaler from './scaler';
-import scalarParams from './artifact/scaler.json'
 import overviewImage from './images/overview.png';
 
 const App = () => {
+
   const [isLoading, setIsLoading] = useState(false);
   const [distance, setDistance] = useState(1);
   const [ratioToMedian, setRatioToMedian] = useState(1);
@@ -29,10 +28,8 @@ const App = () => {
   const [onlineTransaction, setOnlineTransaction] = useState(false);
   const [message, setMessage] = useState('');
 
-  const endpoint = "https://fraud-ymaheshw-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/v2/models/fraud/infer";
+  const endpoint = "https://ai-fraud-detection-demo-api-ymaheshw-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com";
 
-
-  const scaler = new StandardScaler(scalarParams)
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -45,12 +42,8 @@ const App = () => {
       onlineTransaction ? 1 : 0
     ];
     
-    let data = [0.3111400080477545, 1.9459399775518593, 1.0, 0.0, 0.0]
-    const transformedData = scaler.transform(data);
-    console.log(transformedData)
-    
     try {
-      const response = await axios.post(endpoint, transformedData);
+      const response = await axios.post(endpoint, payload);
       console.log(response)
       setMessage(response.data.message);
     } catch (error) {
