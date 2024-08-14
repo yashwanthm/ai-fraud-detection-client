@@ -16,19 +16,23 @@ import {
   GridItem
 } from '@patternfly/react-core';
 import "@patternfly/react-core/dist/styles/base.css";
+import StandardScaler from './scaler';
+import scalarParams from './artifact/scaler.json'
 import overviewImage from './images/overview.png';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [distance, setDistance] = useState('');
-  const [ratioToMedian, setRatioToMedian] = useState('');
+  const [distance, setDistance] = useState(1);
+  const [ratioToMedian, setRatioToMedian] = useState(1);
   const [usePin, setUsePin] = useState(false);
   const [useChip, setUseChip] = useState(false);
   const [onlineTransaction, setOnlineTransaction] = useState(false);
   const [message, setMessage] = useState('');
 
-  const endpoint = "https://ai-fraud-detection-demo-api-ymaheshw-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/";
+  const endpoint = "https://fraud-ymaheshw-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/v2/models/fraud/infer";
 
+
+  const scaler = new StandardScaler(scalarParams)
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -40,9 +44,14 @@ const App = () => {
       useChip ? 1 : 0,
       onlineTransaction ? 1 : 0
     ];
-
+    
+    let data = [0.3111400080477545, 1.9459399775518593, 1.0, 0.0, 0.0]
+    const transformedData = scaler.transform(data);
+    console.log(transformedData)
+    
     try {
-      const response = await axios.post(endpoint, payload);
+      const response = await axios.post(endpoint, transformedData);
+      console.log(response)
       setMessage(response.data.message);
     } catch (error) {
       console.error('Error submitting form:', error);

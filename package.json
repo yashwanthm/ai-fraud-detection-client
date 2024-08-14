@@ -11,10 +11,12 @@
     },
     "dependencies": {
         "@patternfly/react-core": "^5.3.4",
+        "@tensorflow/tfjs": "^4.20.0",
         "axios": "^1.4.0",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
-        "react-scripts": "5.0.1"
+        "react-scripts": "5.0.1",
+        "scikitjs": "^1.24.0"
     },
     "browserslist": {
         "production": [
