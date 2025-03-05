@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-fraud-detection-client
+  labels:
+    app: ai-fraud-detection-client
+spec:
+  replicas: 2  # Adjust based on your needs
+  selector:
+    matchLabels:
+      app: ai-fraud-detection-client
+  template:
+    metadata:
+      labels:
+        app: ai-fraud-detection-client
+    spec:
+      containers:
+        - name: ai-fraud-detection-client
+          image: your-dockerhub-username/ai-fraud-detection-client:latest  # Change this to your image
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-fraud-detection-client-service
+spec:
+  selector:
+    app: ai-fraud-detection-client
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP  # Change to LoadBalancer if needed
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ai-fraud-detection-client-ingress
+spec:
+  rules:
+    - host: ai-fraud-detection.example.com  # Change to your domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ai-fraud-detection-client-service
+                port:
+                  number: 80
